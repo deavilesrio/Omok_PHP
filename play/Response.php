@@ -10,16 +10,19 @@ class Response{
     static function withReason($reason){
         // a response with reason is always an error
         // hence the false
-        $instance = new self(FALSE);
-        $instance->reason = $reason;
+        // $instance = new self(FALSE);
+        // $instance->reason = $reason;
+        $instance = array('response' => 'false','reason' => $reason);
         return $instance;
     }
     
     static function withPid($pid){
         // a response with pid is always correct
         // hence the TRUE
-        $instance = new self(TRUE);
-        $instance->pid = $pid;
+        $instance = array('response' => 'true','pid' => $pid);
+        // $instance = new self(TRUE);
+        // $instance->pid = $pid;
+        // echo(json_encode($instance));
         return $instance;
     }
     
@@ -27,8 +30,9 @@ class Response{
         // a response with move is always correct
         // hence the TRUE
         // this is used when the client wins the game
-        $instance = new self(TRUE);
-        $instance->ack_move = $ackMove;
+        // $instance = new self(TRUE);
+        // $instance->ack_move = $ackMove;
+        $instance = array('response' => 'false','ack_move' => $ackMove);
         return $instance;
     }
     
@@ -36,9 +40,10 @@ class Response{
         // a response with moves is always correct
         // hence the TRUE
         // this is used when the client hasn't won and we make a move
-        $instance = new self(TRUE);
-        $instance->ack_move = $ackMove;
-        $instance->move = $move;
+        // $instance = new self(TRUE);
+        // $instance->ack_move = $ackMove;
+        // $instance->move = $move;
+        $instance = array('response' => 'false','ack_move' => $ackMove, 'move' => $move);
         return $instance;
     }
 }

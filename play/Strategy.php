@@ -1,18 +1,19 @@
 <?php
-class RandomStrategy{
-	static function getMove($board){
-		for(;;){
-			$move[0] = rand(0, 14);
-			$move[1] = rand(0, 14);
-			// if(!$board[$move[0]][$move[1]]){
-			// 	return $move;
-			// }
-			if ($board[$move[0]][$move[1]]== 0){
-				return $move;
-			 }
-		}
-	}
-}
+// require('RandomStrategy.php');
+// class RandomStrategy{
+// 	static function getMove($board){
+// 		for(;;){
+// 			$move[0] = rand(0, 14);
+// 			$move[1] = rand(0, 14);
+// 			// if(!$board[$move[0]][$move[1]]){
+// 			// 	return $move;
+// 			// }
+// 			if ($board[$move[0]][$move[1]]== 0){
+// 				return $move;
+// 			 }
+// 		}
+// 	}
+// }
 
 class SmartStrategy{
 	static function getMove($bool, $board, $lastMove){
@@ -60,7 +61,7 @@ class SmartStrategy{
 				} else {
 					//if($temp > 3){echo json_encode($temp);}
 					// echo('<br>Random Horizontal');
-					$tempValue = RandomStrategy::getMove($board);
+					$tempValue = RandomStrategy::pickPlace($board);
 					
 				}
 			}
@@ -95,7 +96,7 @@ class SmartStrategy{
 						} else {
 							//if($temp > 3){echo json_encode($temp);}
 							//echo('<br>Random Vertical');
-							$tempValue = RandomStrategy::getMove($board);
+							$tempValue = RandomStrategy::pickPlace($board);
 						}
 					}
 					//echo('<br>'.$lastMove[0].' and '.$i.'- count: '. $countv);
@@ -125,7 +126,7 @@ class SmartStrategy{
 						} else {
 							//if($temp > 3){echo json_encode($temp);}
 							//echo('<br>Random Horizontal backwards');
-							$tempValue = RandomStrategy::getMove($board);
+							$tempValue = RandomStrategy::pickPlace($board);
 							
 						}
 					}
@@ -157,7 +158,7 @@ class SmartStrategy{
 								} else {
 									//if($temp > 3){echo json_encode($temp);}
 									//echo('<br>Random Vertical backwards');
-									$tempValue = RandomStrategy::getMove($board);
+									$tempValue = RandomStrategy::pickPlace($board);
 								}
 							}
 							//echo('<br>'.$lastMove[0].' and '.$i.'- count: '. $countv);

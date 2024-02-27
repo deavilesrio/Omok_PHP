@@ -1,9 +1,10 @@
 <?php
 
 //Diego Aviles and Angel Urbina
-require '../common/Common.php';
-require '../common/Game.php';
-require '../common/Response.php';
+require 'Common.php';
+require 'Game.php';
+require 'Response.php';
+require 'RandomStrategy.php';
 require 'Strategy.php';
 $uri = explode('?', $_SERVER['REQUEST_URI']);
 $x = $_GET["x"];
@@ -59,7 +60,9 @@ function makeMove($pid, $move){
 	}
 	else {
 		if($game->strategy === "random"){
-			$move = RandomStrategy::getMove($game->board);
+			// $move = RandomStrategy::getMove($game->board);
+			$move = RandomStrategy::pickPlace($game->board);
+			
 		}
 		else{
 			$move = SmartStrategy::getMove(FALSE, $game->board, $move);

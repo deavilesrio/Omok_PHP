@@ -1,11 +1,11 @@
 <?php
 // NEW
 // Abner Palomino, Roman Martinez
-require '../common/Common.php';
-require '../common/Game.php';
-require '../common/Response.php';
+require '../play/Common.php';
+require '../play/Game.php';
+require '../play/Response.php';
 /* USE POLYMORPHISM!!! */
-//$uri = explode('?', 'http://cs3360.cs.utep.edu/ramartinez12//new?strategy=Smart');
+
 $uri = explode('?', $_SERVER['REQUEST_URI']);
 // check if there's a query
 if(count($uri) > 1){

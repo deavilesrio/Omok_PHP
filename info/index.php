@@ -1,6 +1,6 @@
 <?php
 
-
+//creating and encoding the basic information of the game/
 $strategies = array('Smart' => 'SmartStrategy','Random' => 'RandomStrategy');
 $info = new GameInfo(15, array_keys($strategies));
 echo json_encode($info); 

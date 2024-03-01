@@ -48,7 +48,7 @@ $y = $_GET["y"]; //gets from the url the value of y
 function makeMove($pid, $move){
 	
 	// restore the saved game, $game receives the instance of that pid
-	$game = Game::restore($pid);
+	$game = Board::restore($pid);
 	// TODO check is a valid move
 	$ackMove = $game->doMove(TRUE, $move);
 	if($ackMove->isWin || $ackMove->isDraw){ //if our move results in win or draw

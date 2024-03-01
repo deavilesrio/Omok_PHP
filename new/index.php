@@ -27,7 +27,7 @@ if(count($uri) > 1){
 function newGame($strategy){
 	 $pid = uniqid();
 	//$pid = "59cb50f4b9c23";
-	$game = new Game($strategy);
+	$game = new Board($strategy);
 	saveGame($pid, $game);
 	echo json_encode(array('response' => true,'pid' => $pid));
 }
